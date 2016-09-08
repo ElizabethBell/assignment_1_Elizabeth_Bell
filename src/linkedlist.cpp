@@ -1,3 +1,5 @@
+//Elizabeth Bell
+
 #include <cstdlib>
 #include <iostream>
 #include <ctime>
@@ -65,7 +67,7 @@ int main(int argc, char *argv[]) {
     srand(time(NULL));
     int num;
     clock_t start;
-    int dur;
+    double dur;
     
     //creates the first node inthe linked list
     Node *list = new Node;
@@ -85,7 +87,7 @@ int main(int argc, char *argv[]) {
       //num = rand()%100+1;
       searchList(list, (rand()%100+1));
     }
-    dur = clock()-start;
+    dur = (clock()-start) / (double) CLOCKS_PER_SEC;
     cout << "Time: " << dur << "\n";
   }
 }
