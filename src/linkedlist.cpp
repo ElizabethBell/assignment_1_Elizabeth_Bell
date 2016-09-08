@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <ctime>
-#include <time.h>
+#include <sys/time.h>
 using namespace std;
 
 //This will be the nodes for the linked list
@@ -40,11 +40,11 @@ void searchList(struct Node *head, int n) {
   
   while(current) {
     if(current-> data == n) {
-      cout << "Number found\n";
+      //cout << "Number found\n";
       return;
     }
     if(current-> next == NULL) {
-      cout << "Number not found\n";
+      //cout << "Number not found\n";
       return;
     }
     else {
@@ -65,19 +65,19 @@ int main(int argc, char *argv[]) {
     srand(time(NULL));
     int num;
     clock_t start;
-    double dur;
+    int dur;
     
     //creates the first node inthe linked list
     Node *list = new Node;
     initNode(list, (rand()%100+1));
-    cout << "made the first node\n";
+    //cout << "made the first node\n";
     
     //generates the numbers and puts them in the list
     for(i=0; i<argOne; i++){
       //num = rand()%100+1;
       addNode(list, (rand()%100+1));
     }
-    cout << "made the list\n";
+    //cout << "made the list\n";
     
     //This will search for the numbers in the list
     start = clock();
@@ -85,7 +85,7 @@ int main(int argc, char *argv[]) {
       //num = rand()%100+1;
       searchList(list, (rand()%100+1));
     }
-    dur = (clock()-start) / (double) CLOCKS_PER_SEC;
+    dur = clock()-start;
     cout << "Time: " << dur << "\n";
   }
 }
